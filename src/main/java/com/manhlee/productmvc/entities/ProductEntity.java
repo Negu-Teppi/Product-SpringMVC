@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "product")
-public class ProductEntity implements Serializable {
+public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,9 +37,8 @@ public class ProductEntity implements Serializable {
     @Transient
     private List<MultipartFile> files;
 
-//    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//    private ProductDetailEntity productDetail;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
+    private List<ProductDetailEntity> productDetails;
 
     public ProductEntity() {
     }
@@ -100,13 +99,13 @@ public class ProductEntity implements Serializable {
         this.files = files;
     }
 
-//    public ProductDetailEntity getProductDetail() {
-//        return productDetail;
-//    }
-//
-//    public void setProductDetail(ProductDetailEntity productDetail) {
-//        this.productDetail = productDetail;
-//    }
+    public List<ProductDetailEntity> getProductDetails() {
+        return productDetails;
+    }
+
+    public void setProductDetails(List<ProductDetailEntity> productDetails) {
+        this.productDetails = productDetails;
+    }
 
 //    @Override
 //    public String toString() {

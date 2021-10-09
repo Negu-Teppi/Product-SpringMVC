@@ -41,6 +41,7 @@
                             <th>Create Date</th>
                             <th>Image</th>
                             <th>Category</th>
+                            <th>Action</th>
                         </tr>
 
                         <c:forEach items="${products}" var="product">
@@ -56,6 +57,8 @@
                                     </c:forEach>
                                 </td>
                                 <td>${product.category.name}</td>
+                                <td><button type="button" class="btn btn-danger"
+                                            onclick="location.href = '<c:url value="/order/${product.id}"/>'">Order</button></td>
                             </tr>
                         </c:forEach>
                     </table>
