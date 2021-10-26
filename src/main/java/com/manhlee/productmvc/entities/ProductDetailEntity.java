@@ -27,6 +27,9 @@ public class ProductDetailEntity implements Serializable {
     @JoinColumn(name = "color_id")
     private ColorEntity color;
 
+    @Transient
+    private int quantityPurchased;
+
     public int getId() {
         return id;
     }
@@ -73,5 +76,13 @@ public class ProductDetailEntity implements Serializable {
 
     public void setColor(ColorEntity color) {
         this.color = color;
+    }
+
+    public int getQuantityPurchased() {
+        return quantityPurchased;
+    }
+
+    public void setQuantityPurchased(int quantityPurchased) {
+        this.quantityPurchased = quantityPurchased;
     }
 }

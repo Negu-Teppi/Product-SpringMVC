@@ -16,7 +16,15 @@ public class ProductDetailService {
         productDetailRepository.save(productDetail);
     }
 
-    public List<ProductDetailEntity> getProductDetailByProductId(int id){
-        return productDetailRepository.findByProduct_Id(id);
+    public List<ProductDetailEntity> getByProductIdGroupBySize(int productId){
+        return productDetailRepository.getProductDetailByProductIdGroupBySizeId(productId);
+    }
+
+    public List<ProductDetailEntity> getByProductIdSizeGroupByColor(int productId, String sizeName){
+        return productDetailRepository.getColorsProductDetailByProducIdSizeNameGroupByColorId(productId, sizeName);
+    }
+
+    public ProductDetailEntity getByProductIdSizeColor(int productId, String sizeName, String colorName){
+        return productDetailRepository.getPriceByProductIdSizeNameColorName(productId, sizeName, sizeName);
     }
 }

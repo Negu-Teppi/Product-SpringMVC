@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class ProductController {
@@ -149,11 +147,5 @@ public class ProductController {
         return "redirect:/home";
     }
 
-    @RequestMapping("/order/{id}")
-    public String order(Model model, @PathVariable("id") int productId){
-        model.addAttribute("product", productService.getProduct(productId));
-        model.addAttribute("productDetails", productDetailService.getProductDetailByProductId(productId));
-        model.addAttribute("action", "addCart");
-        return "order-form";
-    }
+
 }
